@@ -9,12 +9,16 @@
 /* Begin PBXBuildFile section */
 		C28BFEF725401CB50013DA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFEF625401CB50013DA7D /* AppDelegate.swift */; };
 		C28BFEF925401CB50013DA7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFEF825401CB50013DA7D /* SceneDelegate.swift */; };
-		C28BFEFB25401CB50013DA7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFEFA25401CB50013DA7D /* ViewController.swift */; };
 		C28BFEFE25401CB50013DA7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28BFEFC25401CB50013DA7D /* Main.storyboard */; };
 		C28BFF0025401CB70013DA7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C28BFEFF25401CB70013DA7D /* Assets.xcassets */; };
 		C28BFF0325401CB70013DA7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF0125401CB70013DA7D /* LaunchScreen.storyboard */; };
 		C28BFF0E25401CB70013DA7D /* LeBaluchonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF0D25401CB70013DA7D /* LeBaluchonTests.swift */; };
 		C28BFF1925401CB80013DA7D /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF1825401CB80013DA7D /* LeBaluchonUITests.swift */; };
+		C28BFF2A25401D400013DA7D /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2925401D400013DA7D /* ExchangeRateViewController.swift */; };
+		C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2B25401D590013DA7D /* WeatherViewController.swift */; };
+		C28BFF2E25401D6E0013DA7D /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2D25401D6E0013DA7D /* TranslatorViewController.swift */; };
+		C28BFF3025403E450013DA7D /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2F25403E450013DA7D /* ExchangeRateService.swift */; };
+		C28BFF32254060030013DA7D /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF31254060030013DA7D /* Rate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +42,6 @@
 		C28BFEF325401CB50013DA7D /* LeBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28BFEF625401CB50013DA7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C28BFEF825401CB50013DA7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C28BFEFA25401CB50013DA7D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C28BFEFD25401CB50013DA7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C28BFEFF25401CB70013DA7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C28BFF0225401CB70013DA7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		C28BFF1425401CB80013DA7D /* LeBaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C28BFF1825401CB80013DA7D /* LeBaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITests.swift; sourceTree = "<group>"; };
 		C28BFF1A25401CB80013DA7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C28BFF2925401D400013DA7D /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
+		C28BFF2B25401D590013DA7D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		C28BFF2D25401D6E0013DA7D /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
+		C28BFF2F25403E450013DA7D /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeRateService.swift; path = LeBaluchon/Controller/ExchangeRateService.swift; sourceTree = SOURCE_ROOT; };
+		C28BFF31254060030013DA7D /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				C28BFEF625401CB50013DA7D /* AppDelegate.swift */,
-				C28BFEF825401CB50013DA7D /* SceneDelegate.swift */,
-				C28BFEFA25401CB50013DA7D /* ViewController.swift */,
-				C28BFEFC25401CB50013DA7D /* Main.storyboard */,
-				C28BFEFF25401CB70013DA7D /* Assets.xcassets */,
-				C28BFF0125401CB70013DA7D /* LaunchScreen.storyboard */,
 				C28BFF0425401CB70013DA7D /* Info.plist */,
+				C28BFEF825401CB50013DA7D /* SceneDelegate.swift */,
+				C28BFF2625401CD60013DA7D /* Model */,
+				C28BFF2725401CDD0013DA7D /* View */,
+				C28BFF2825401CE30013DA7D /* Controller */,
 			);
 			path = LeBaluchon;
 			sourceTree = "<group>";
@@ -126,6 +133,35 @@
 				C28BFF1A25401CB80013DA7D /* Info.plist */,
 			);
 			path = LeBaluchonUITests;
+			sourceTree = "<group>";
+		};
+		C28BFF2625401CD60013DA7D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C28BFF2F25403E450013DA7D /* ExchangeRateService.swift */,
+				C28BFF31254060030013DA7D /* Rate.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C28BFF2725401CDD0013DA7D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C28BFEFF25401CB70013DA7D /* Assets.xcassets */,
+				C28BFEFC25401CB50013DA7D /* Main.storyboard */,
+				C28BFF0125401CB70013DA7D /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C28BFF2825401CE30013DA7D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C28BFF2925401D400013DA7D /* ExchangeRateViewController.swift */,
+				C28BFF2B25401D590013DA7D /* WeatherViewController.swift */,
+				C28BFF2D25401D6E0013DA7D /* TranslatorViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +295,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28BFEFB25401CB50013DA7D /* ViewController.swift in Sources */,
+				C28BFF3025403E450013DA7D /* ExchangeRateService.swift in Sources */,
+				C28BFF2A25401D400013DA7D /* ExchangeRateViewController.swift in Sources */,
+				C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */,
+				C28BFF32254060030013DA7D /* Rate.swift in Sources */,
 				C28BFEF725401CB50013DA7D /* AppDelegate.swift in Sources */,
 				C28BFEF925401CB50013DA7D /* SceneDelegate.swift in Sources */,
+				C28BFF2E25401D6E0013DA7D /* TranslatorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +494,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
