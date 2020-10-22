@@ -17,8 +17,10 @@
 		C28BFF2A25401D400013DA7D /* ExchangeRateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2925401D400013DA7D /* ExchangeRateViewController.swift */; };
 		C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2B25401D590013DA7D /* WeatherViewController.swift */; };
 		C28BFF2E25401D6E0013DA7D /* TranslatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2D25401D6E0013DA7D /* TranslatorViewController.swift */; };
-		C28BFF3025403E450013DA7D /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF2F25403E450013DA7D /* ExchangeRateService.swift */; };
 		C28BFF32254060030013DA7D /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF31254060030013DA7D /* Rate.swift */; };
+		C28BFF3425417B150013DA7D /* ExchangeRateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF3325417B150013DA7D /* ExchangeRateError.swift */; };
+		C28BFF3A2541F3F20013DA7D /* TranslatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF392541F3F20013DA7D /* TranslatorService.swift */; };
+		C28BFF3E2541F69D0013DA7D /* ExchangeRateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF3D2541F69D0013DA7D /* ExchangeRateService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +57,10 @@
 		C28BFF2925401D400013DA7D /* ExchangeRateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateViewController.swift; sourceTree = "<group>"; };
 		C28BFF2B25401D590013DA7D /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		C28BFF2D25401D6E0013DA7D /* TranslatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorViewController.swift; sourceTree = "<group>"; };
-		C28BFF2F25403E450013DA7D /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeRateService.swift; path = LeBaluchon/Controller/ExchangeRateService.swift; sourceTree = SOURCE_ROOT; };
 		C28BFF31254060030013DA7D /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		C28BFF3325417B150013DA7D /* ExchangeRateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateError.swift; sourceTree = "<group>"; };
+		C28BFF392541F3F20013DA7D /* TranslatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TranslatorService.swift; path = LeBaluchon/Model/TranslatorService.swift; sourceTree = SOURCE_ROOT; };
+		C28BFF3D2541F69D0013DA7D /* ExchangeRateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateService.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,8 +142,10 @@
 		C28BFF2625401CD60013DA7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C28BFF2F25403E450013DA7D /* ExchangeRateService.swift */,
+				C28BFF3D2541F69D0013DA7D /* ExchangeRateService.swift */,
 				C28BFF31254060030013DA7D /* Rate.swift */,
+				C28BFF3325417B150013DA7D /* ExchangeRateError.swift */,
+				C28BFF392541F3F20013DA7D /* TranslatorService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -295,13 +301,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C28BFF3025403E450013DA7D /* ExchangeRateService.swift in Sources */,
 				C28BFF2A25401D400013DA7D /* ExchangeRateViewController.swift in Sources */,
 				C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */,
+				C28BFF3425417B150013DA7D /* ExchangeRateError.swift in Sources */,
 				C28BFF32254060030013DA7D /* Rate.swift in Sources */,
 				C28BFEF725401CB50013DA7D /* AppDelegate.swift in Sources */,
 				C28BFEF925401CB50013DA7D /* SceneDelegate.swift in Sources */,
+				C28BFF3E2541F69D0013DA7D /* ExchangeRateService.swift in Sources */,
 				C28BFF2E25401D6E0013DA7D /* TranslatorViewController.swift in Sources */,
+				C28BFF3A2541F3F20013DA7D /* TranslatorService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,19 @@
 
 import Foundation
 
-struct Rate {
-    var currentRate: String
+struct Rate: Decodable {
+    
+    var rates: [String: Double]
+    
+    private func convertEuroToDollar(amount: Double, rate: Double) -> Double {
+        return amount * rate
+    }
+    
+    func calculate(amount: Double) -> Double {
+        guard let rate = rates.first?.value else {
+            return 0.00
+        }
+        let finalValue = convertEuroToDollar(amount: amount, rate: rate)
+        return finalValue
+    }
 }

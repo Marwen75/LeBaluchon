@@ -9,22 +9,33 @@
 import UIKit
 
 class TranslatorViewController: UIViewController {
-
+    
+    @IBOutlet weak var traductionButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var frenchTextView: UITextView!
+    @IBOutlet weak var englishTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        activityIndicator.isHidden = true 
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func traductionButtonTapped(_ sender: UIButton) {
     }
-    */
+    
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        frenchTextView.resignFirstResponder()
+    }
+    
+    
+    
+    
+}
 
+extension TranslatorViewController: UITextViewDelegate {
+    
+    func textViewShouldReturn(_ textView: UITextView) -> Bool {
+        textView.resignFirstResponder()
+        return true
+    }
 }
