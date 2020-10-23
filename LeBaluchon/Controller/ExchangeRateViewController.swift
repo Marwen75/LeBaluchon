@@ -29,7 +29,7 @@ class ExchangeRateViewController: UIViewController {
     @IBAction func convertButtonTapped(_ sender: UIButton) {
         do {
             try displayTheConvertAmount()
-        } catch let error as LeBaluchonError {
+        } catch let error as AppError {
             displayAlert(title: error.errorDescription, message: error.failureReason)
         } catch {
             displayAlert(title: "Oups !", message: "Erreur inconnue")
@@ -39,7 +39,7 @@ class ExchangeRateViewController: UIViewController {
     private func displayTheConvertAmount() throws {
         guard let text = euroTextField.text else { return }
         if text.isEmpty || text.first == "." {
-            throw LeBaluchonError.incorrectAmount
+            throw AppError.incorrectAmount
         }
         guard let amount = Double(text) else { return }
         toggleActivityIndicator(shown: true)

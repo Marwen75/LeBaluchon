@@ -16,7 +16,7 @@ class ExchangeRateService {
     private let changeRateURL =  "http://data.fixer.io/api/latest?access_key=fe21ccace14d5cfcf3ea2634be1aaec6&base=EUR&symbols=USD"
     private var task: URLSessionDataTask?
     
-    func getChangeRate(completionHandler: @escaping (Result<Rate, LeBaluchonError>) -> Void) {
+    func getChangeRate(completionHandler: @escaping (Result<Rate, AppError>) -> Void) {
         let session = URLSession(configuration: .default)
         
         guard let url = URL(string: changeRateURL) else {
