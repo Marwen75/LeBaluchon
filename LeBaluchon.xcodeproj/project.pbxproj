@@ -26,6 +26,7 @@
 		C28BFF4425432B220013DA7D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF4325432B220013DA7D /* Weather.swift */; };
 		C28BFF462543F3E40013DA7D /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF452543F3E40013DA7D /* APIKeys.plist */; };
 		C28BFF482543FCA00013DA7D /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */; };
+		C28BFF4A254469F00013DA7D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF49254469F00013DA7D /* RoundButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		C28BFF4325432B220013DA7D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C28BFF452543F3E40013DA7D /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyManager.swift; sourceTree = "<group>"; };
+		C28BFF49254469F00013DA7D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				C28BFEFF25401CB70013DA7D /* Assets.xcassets */,
 				C28BFEFC25401CB50013DA7D /* Main.storyboard */,
 				C28BFF0125401CB70013DA7D /* LaunchScreen.storyboard */,
+				C28BFF49254469F00013DA7D /* RoundButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			files = (
 				C28BFF2A25401D400013DA7D /* ExchangeRateViewController.swift in Sources */,
 				C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */,
+				C28BFF4A254469F00013DA7D /* RoundButton.swift in Sources */,
 				C28BFF42254322250013DA7D /* WeatherService.swift in Sources */,
 				C28BFF3425417B150013DA7D /* AppError.swift in Sources */,
 				C28BFF4425432B220013DA7D /* Weather.swift in Sources */,
