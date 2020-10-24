@@ -42,10 +42,11 @@ class TranslatorService {
     }
     
     private static func createTranslationRequest(text: String) -> URLRequest? {
+        guard let apiKey = ApiKeyManager().apiKey else {return nil}
         let source = "source=fr"
         let target = "target=en"
         let format = "format=text"
-        let key = "AIzaSyAFYX4W6xG6PLXPsLRSQpOBwwi2bPMxzrE"
+        let key = apiKey.TRANSLATOR_API_KEY
         guard let translatorURL = URL(string: "https://translation.googleapis.com/language/translate/v2?") else {return nil}
         var request = URLRequest(url: translatorURL)
         request.httpMethod = "POST"

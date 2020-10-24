@@ -13,6 +13,7 @@ enum AppError: Error {
     case incorrectAmount
     case noData
     case incorrectSentence
+    case cantFindKey
 
     var errorDescription: String {
        return "Oups !"
@@ -25,6 +26,8 @@ enum AppError: Error {
             return "Ces données ne peuvent pas être fournies pour le moment."
         case .incorrectSentence:
             return "Votre phrase est incorrecte."
+        case .cantFindKey:
+            return "Impossible de trouver la clé API"
         }
     }
 }

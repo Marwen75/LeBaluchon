@@ -12,14 +12,12 @@ class ExchangeRateService {
     
     static let shared = ExchangeRateService()
     private init() {}
-    
-    private let changeRateURL =  "http://data.fixer.io/api/latest?access_key=fe21ccace14d5cfcf3ea2634be1aaec6&base=EUR&symbols=USD"
     private var task: URLSessionDataTask?
     
     func getChangeRate(completionHandler: @escaping (Result<Rate, AppError>) -> Void) {
         let session = URLSession(configuration: .default)
-        
-        guard let url = URL(string: changeRateURL) else {
+        guard let apiKey = ApiKeyManager().apiKey else {return}
+        guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=\(apiKey.EXCHANGE_API_KEY)&base=EUR&symbols=USD") else {
             completionHandler(.failure(.noData))
             return
         }

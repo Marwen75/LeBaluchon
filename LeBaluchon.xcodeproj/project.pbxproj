@@ -24,6 +24,8 @@
 		C28BFF402542F6EF0013DA7D /* Translation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF3F2542F6EF0013DA7D /* Translation.swift */; };
 		C28BFF42254322250013DA7D /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF41254322250013DA7D /* WeatherService.swift */; };
 		C28BFF4425432B220013DA7D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF4325432B220013DA7D /* Weather.swift */; };
+		C28BFF462543F3E40013DA7D /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF452543F3E40013DA7D /* APIKeys.plist */; };
+		C28BFF482543FCA00013DA7D /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		C28BFF3F2542F6EF0013DA7D /* Translation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translation.swift; sourceTree = "<group>"; };
 		C28BFF41254322250013DA7D /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		C28BFF4325432B220013DA7D /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		C28BFF452543F3E40013DA7D /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,7 @@
 		C28BFEF525401CB50013DA7D /* LeBaluchon */ = {
 			isa = PBXGroup;
 			children = (
+				C28BFF452543F3E40013DA7D /* APIKeys.plist */,
 				C28BFEF625401CB50013DA7D /* AppDelegate.swift */,
 				C28BFF0425401CB70013DA7D /* Info.plist */,
 				C28BFEF825401CB50013DA7D /* SceneDelegate.swift */,
@@ -148,6 +153,7 @@
 		C28BFF2625401CD60013DA7D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */,
 				C28BFF3D2541F69D0013DA7D /* ExchangeRateService.swift */,
 				C28BFF31254060030013DA7D /* Rate.swift */,
 				C28BFF3325417B150013DA7D /* AppError.swift */,
@@ -284,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C28BFF0325401CB70013DA7D /* LaunchScreen.storyboard in Resources */,
+				C28BFF462543F3E40013DA7D /* APIKeys.plist in Resources */,
 				C28BFF0025401CB70013DA7D /* Assets.xcassets in Resources */,
 				C28BFEFE25401CB50013DA7D /* Main.storyboard in Resources */,
 			);
@@ -319,6 +326,7 @@
 				C28BFEF725401CB50013DA7D /* AppDelegate.swift in Sources */,
 				C28BFEF925401CB50013DA7D /* SceneDelegate.swift in Sources */,
 				C28BFF3E2541F69D0013DA7D /* ExchangeRateService.swift in Sources */,
+				C28BFF482543FCA00013DA7D /* ApiKeyManager.swift in Sources */,
 				C28BFF2E25401D6E0013DA7D /* TranslatorViewController.swift in Sources */,
 				C28BFF3A2541F3F20013DA7D /* TranslatorService.swift in Sources */,
 				C28BFF402542F6EF0013DA7D /* Translation.swift in Sources */,

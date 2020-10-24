@@ -17,8 +17,9 @@ class WeatherService {
     
     func getWeather(city: String, completionHandler: @escaping (Result<WeatherData, AppError>) -> Void) {
         let session = URLSession(configuration: .default)
+        guard let apiKey = ApiKeyManager().apiKey else {return}
         guard let encodedCity = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
-        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&units=metric&lang=fr&APPID=1ce209dc900a8e6759d0919ba6a02c74") else {
+        guard let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCity)&units=metric&lang=fr&APPID=\(apiKey.WEATHER_API_KEY)") else {
             completionHandler(.failure(.noData))
             return
         }
