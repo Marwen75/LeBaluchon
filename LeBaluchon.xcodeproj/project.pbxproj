@@ -122,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				C28BFF452543F3E40013DA7D /* APIKeys.plist */,
-				C28BFEF625401CB50013DA7D /* AppDelegate.swift */,
 				C28BFF0425401CB70013DA7D /* Info.plist */,
+				C28BFEF625401CB50013DA7D /* AppDelegate.swift */,
 				C28BFEF825401CB50013DA7D /* SceneDelegate.swift */,
 				C28BFF2625401CD60013DA7D /* Model */,
 				C28BFF2725401CDD0013DA7D /* View */,
