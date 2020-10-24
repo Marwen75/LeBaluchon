@@ -19,7 +19,7 @@ class ExchangeRateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        convertActivityIndicator.isHidden = true
+        convertActivityIndicator.isHidden = true 
     }
     
     @IBAction func dismissKeybord(_ sender: UITapGestureRecognizer) {
@@ -72,13 +72,6 @@ class ExchangeRateViewController: UIViewController {
     }
 }
 
-extension ExchangeRateViewController {
-    func displayAlert(title: String, message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
-    }
-}
 extension ExchangeRateViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

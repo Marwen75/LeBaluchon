@@ -17,11 +17,13 @@ class TranslatorViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        activityIndicator.isHidden = true 
+        activityIndicator.isHidden = true
     }
+    
     @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         frenchTextView.resignFirstResponder()
     }
+    
     @IBAction func traductionButtonTapped(_ sender: UIButton) {
         do {
             try makeTheTranslation()
@@ -35,7 +37,7 @@ class TranslatorViewController: UIViewController {
     private func makeTheTranslation() throws {
         guard let text = frenchTextView.text else { return }
         if text.isEmpty {
-            throw AppError.incorrectAmount
+            throw AppError.incorrectSentence
         }
         toggleActivityIndicator(shown: true)
         TranslatorService.shared.getTranslation(text: text, completionHandler: { [weak self] result in
@@ -59,7 +61,6 @@ class TranslatorViewController: UIViewController {
         activityIndicator.isHidden = !shown
         traductionButton.isHidden = shown
     }
-    
 }
 
 extension TranslatorViewController: UITextViewDelegate {
@@ -67,13 +68,5 @@ extension TranslatorViewController: UITextViewDelegate {
     func textViewShouldReturn(_ textView: UITextView) -> Bool {
         textView.resignFirstResponder()
         return true
-    }
-}
-
-extension TranslatorViewController {
-    func displayAlert(title: String, message: String) {
-        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-        present(alertVC, animated: true, completion: nil)
     }
 }

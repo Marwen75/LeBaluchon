@@ -27,6 +27,7 @@
 		C28BFF462543F3E40013DA7D /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF452543F3E40013DA7D /* APIKeys.plist */; };
 		C28BFF482543FCA00013DA7D /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */; };
 		C28BFF4A254469F00013DA7D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF49254469F00013DA7D /* RoundButton.swift */; };
+		C28BFF4C254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF4B254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		C28BFF452543F3E40013DA7D /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyManager.swift; sourceTree = "<group>"; };
 		C28BFF49254469F00013DA7D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		C28BFF4B254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		C28BFEEA25401CB50013DA7D = {
 			isa = PBXGroup;
 			children = (
+				C28BFF452543F3E40013DA7D /* APIKeys.plist */,
 				C28BFEF525401CB50013DA7D /* LeBaluchon */,
 				C28BFF0C25401CB70013DA7D /* LeBaluchonTests */,
 				C28BFF1725401CB80013DA7D /* LeBaluchonUITests */,
@@ -123,7 +126,6 @@
 		C28BFEF525401CB50013DA7D /* LeBaluchon */ = {
 			isa = PBXGroup;
 			children = (
-				C28BFF452543F3E40013DA7D /* APIKeys.plist */,
 				C28BFF0425401CB70013DA7D /* Info.plist */,
 				C28BFEF625401CB50013DA7D /* AppDelegate.swift */,
 				C28BFEF825401CB50013DA7D /* SceneDelegate.swift */,
@@ -156,9 +158,9 @@
 			isa = PBXGroup;
 			children = (
 				C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */,
+				C28BFF3325417B150013DA7D /* AppError.swift */,
 				C28BFF3D2541F69D0013DA7D /* ExchangeRateService.swift */,
 				C28BFF31254060030013DA7D /* Rate.swift */,
-				C28BFF3325417B150013DA7D /* AppError.swift */,
 				C28BFF392541F3F20013DA7D /* TranslatorService.swift */,
 				C28BFF3F2542F6EF0013DA7D /* Translation.swift */,
 				C28BFF41254322250013DA7D /* WeatherService.swift */,
@@ -184,6 +186,7 @@
 				C28BFF2925401D400013DA7D /* ExchangeRateViewController.swift */,
 				C28BFF2B25401D590013DA7D /* WeatherViewController.swift */,
 				C28BFF2D25401D6E0013DA7D /* TranslatorViewController.swift */,
+				C28BFF4B254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */,
 				C28BFF4A254469F00013DA7D /* RoundButton.swift in Sources */,
 				C28BFF42254322250013DA7D /* WeatherService.swift in Sources */,
+				C28BFF4C254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift in Sources */,
 				C28BFF3425417B150013DA7D /* AppError.swift in Sources */,
 				C28BFF4425432B220013DA7D /* Weather.swift in Sources */,
 				C28BFF32254060030013DA7D /* Rate.swift in Sources */,
