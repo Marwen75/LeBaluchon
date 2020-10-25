@@ -28,7 +28,7 @@ class WeatherService {
             DispatchQueue.main.async {
                 guard let data = data, error == nil,
                     let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                        completionHandler(.failure(.noData))
+                        completionHandler(.failure(.badRequest))
                         return
                 }
                 do {

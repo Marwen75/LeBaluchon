@@ -12,6 +12,7 @@ enum AppError: Error {
     
     case incorrectAmount
     case noData
+    case badRequest
     case incorrectSentence
     case cantFindKey
 
@@ -24,6 +25,8 @@ enum AppError: Error {
             return "Le montant saisi est incorrect."
         case .noData:
             return "Ces données ne peuvent pas être fournies pour le moment."
+        case .badRequest:
+            return "La requète réseau a échouée"
         case .incorrectSentence:
             return "Votre phrase est incorrecte."
         case .cantFindKey:

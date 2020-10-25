@@ -15,7 +15,9 @@ struct ApiKeys: Decodable {
 }
 
 class ApiKeyManager {
+    
     var apiKey: ApiKeys? {
+        
         guard let path = Bundle.main.path(forResource: "APIKeys", ofType: "plist") else {return nil}
         guard let data = FileManager.default.contents(atPath: path) else {return nil}
         do {

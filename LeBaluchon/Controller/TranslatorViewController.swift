@@ -53,7 +53,6 @@ class TranslatorViewController: UIViewController {
         })
     }
     
-    
     private func displayTranslation(translationText: String) {
         englishTextView.text = translationText
     }

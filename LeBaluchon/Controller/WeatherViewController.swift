@@ -47,18 +47,22 @@ class WeatherViewController: UIViewController {
                 strongSelf.displayAlert(title: error.errorDescription, message: error.failureReason)
             case .success(let weatherData):
                 strongSelf.displayWeatherDetails(temperature: weatherData.main.temp, feelsLike: weatherData.main.feels_like, condition: weatherData.weather.first!.description, humidity: weatherData.main.humidity)
+                strongSelf.displayWeatherIcon(mainWeatherCondition: weatherData.weather.first!.main)
             }
         })
     }
     
+    private func displayWeatherIcon(mainWeatherCondition: String) {
+        conditionImageView.image = UIImage(named: "\(mainWeatherCondition)")
+    }
+    
     private func displayWeatherDetails(temperature: Float, feelsLike: Float, condition: String, humidity: Int) {
-        let temperature = String(format: "%.2f", temperature)
-        temperatureLabel.text = "Température: \(temperature)°C"
-        let feelsLike = String(format: "%.2f", feelsLike)
-        feelsLikeLabel.text = "Ressenti: \(feelsLike)°C"
+        let temperature = roundf(temperature)
+        temperatureLabel.text = "Température: \(String(temperature))°C"
+        let feelsLike = roundf(feelsLike)
+        feelsLikeLabel.text = "Ressenti: \(String(feelsLike))°C"
         conditionLabel.text = "\(condition)"
-        let humidity = String(format: "%.2f", humidity)
-        humidityLabel.text = "Humidité: \(humidity)%"
+        humidityLabel.text = "Humidité: \(String(humidity))%"
     }
     
     private func showCityImage(city: String) {
