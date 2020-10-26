@@ -24,10 +24,8 @@ class ApiKeyManager {
             let decoder = PropertyListDecoder()
             let apiKeyData = try decoder.decode(ApiKeys.self, from: data)
             return apiKeyData
-        } catch let error as AppError {
-            fatalError(error.failureReason)
         } catch {
-            fatalError("Could not find api keys in plist")
+            fatalError("Could Not find api Keys in plist")
         }
     }
 }

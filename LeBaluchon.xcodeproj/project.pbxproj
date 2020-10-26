@@ -28,6 +28,14 @@
 		C28BFF482543FCA00013DA7D /* ApiKeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */; };
 		C28BFF4A254469F00013DA7D /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF49254469F00013DA7D /* RoundButton.swift */; };
 		C28BFF4C254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF4B254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift */; };
+		C28BFF502547070D0013DA7D /* weather.json in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF4F2547070D0013DA7D /* weather.json */; };
+		C28BFF522547073C0013DA7D /* translation.json in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF512547073C0013DA7D /* translation.json */; };
+		C28BFF54254707530013DA7D /* exchangerate.json in Resources */ = {isa = PBXBuildFile; fileRef = C28BFF53254707530013DA7D /* exchangerate.json */; };
+		C28BFF56254708FA0013DA7D /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF55254708FA0013DA7D /* FakeResponseData.swift */; };
+		C28BFF58254711640013DA7D /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF57254711640013DA7D /* URLSessionFake.swift */; };
+		C28BFF5A254716770013DA7D /* ExchangeRateServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF59254716770013DA7D /* ExchangeRateServiceTestCase.swift */; };
+		C28BFF5C254716BB0013DA7D /* TranslatorServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF5B254716BB0013DA7D /* TranslatorServiceTestCase.swift */; };
+		C28BFF5E254716D60013DA7D /* WeatherServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFF5D254716D60013DA7D /* WeatherServiceTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +83,14 @@
 		C28BFF472543FC9F0013DA7D /* ApiKeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyManager.swift; sourceTree = "<group>"; };
 		C28BFF49254469F00013DA7D /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C28BFF4B254480FB0013DA7D /* Extension+ViewController+DisplayAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+ViewController+DisplayAlert.swift"; sourceTree = "<group>"; };
+		C28BFF4F2547070D0013DA7D /* weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = weather.json; sourceTree = "<group>"; };
+		C28BFF512547073C0013DA7D /* translation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = translation.json; sourceTree = "<group>"; };
+		C28BFF53254707530013DA7D /* exchangerate.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exchangerate.json; sourceTree = "<group>"; };
+		C28BFF55254708FA0013DA7D /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
+		C28BFF57254711640013DA7D /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
+		C28BFF59254716770013DA7D /* ExchangeRateServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateServiceTestCase.swift; sourceTree = "<group>"; };
+		C28BFF5B254716BB0013DA7D /* TranslatorServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslatorServiceTestCase.swift; sourceTree = "<group>"; };
+		C28BFF5D254716D60013DA7D /* WeatherServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceTestCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +156,14 @@
 			isa = PBXGroup;
 			children = (
 				C28BFF0D25401CB70013DA7D /* LeBaluchonTests.swift */,
+				C28BFF59254716770013DA7D /* ExchangeRateServiceTestCase.swift */,
+				C28BFF5B254716BB0013DA7D /* TranslatorServiceTestCase.swift */,
+				C28BFF5D254716D60013DA7D /* WeatherServiceTestCase.swift */,
+				C28BFF55254708FA0013DA7D /* FakeResponseData.swift */,
+				C28BFF57254711640013DA7D /* URLSessionFake.swift */,
+				C28BFF512547073C0013DA7D /* translation.json */,
+				C28BFF53254707530013DA7D /* exchangerate.json */,
+				C28BFF4F2547070D0013DA7D /* weather.json */,
 				C28BFF0F25401CB70013DA7D /* Info.plist */,
 			);
 			path = LeBaluchonTests;
@@ -306,6 +330,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28BFF502547070D0013DA7D /* weather.json in Resources */,
+				C28BFF54254707530013DA7D /* exchangerate.json in Resources */,
+				C28BFF522547073C0013DA7D /* translation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +372,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C28BFF5E254716D60013DA7D /* WeatherServiceTestCase.swift in Sources */,
+				C28BFF5C254716BB0013DA7D /* TranslatorServiceTestCase.swift in Sources */,
+				C28BFF5A254716770013DA7D /* ExchangeRateServiceTestCase.swift in Sources */,
 				C28BFF0E25401CB70013DA7D /* LeBaluchonTests.swift in Sources */,
+				C28BFF58254711640013DA7D /* URLSessionFake.swift in Sources */,
+				C28BFF56254708FA0013DA7D /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -496,7 +528,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -549,7 +581,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LeBaluchonTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,7 +602,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = LeBaluchonTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

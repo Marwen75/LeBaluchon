@@ -13,16 +13,20 @@ class TranslatorService {
     static let shared = TranslatorService()
     private init() {}
     private var task: URLSessionDataTask?
+    private var translatorSession = URLSession(configuration: .default)
+    
+    init(translatorSession: URLSession) {
+        self.translatorSession = translatorSession
+    }
     
     func getTranslation(text: String, completionHandler: @escaping (Result<Translation, AppError>) -> Void) {
-        let session = URLSession(configuration: .default)
         
         guard let url = TranslatorService.createTranslationRequest(text: text) else {
             completionHandler(.failure(.noData))
             return
         }
         task?.cancel()
-        task = session.dataTask(with: url) { (data, response, error) in
+        task = translatorSession.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 guard let data = data, error == nil,
                     let response = response as? HTTPURLResponse, response.statusCode == 200 else {
