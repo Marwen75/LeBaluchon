@@ -7,10 +7,10 @@
 //
 
 import Foundation
-
+// Creating a decodable object to stock the parsed JSON data coming from the api and to calculate the amount
 struct Rate: Decodable {
     
-    var rates: [String: Double]
+    let rates: [String: Double]
     
     private func convertEuroToDollar(amount: Double, rate: Double) -> Double {
         return amount * rate
@@ -23,4 +23,7 @@ struct Rate: Decodable {
         let finalValue = convertEuroToDollar(amount: amount, rate: rate)
         return finalValue
     }
+    
 }
+
+

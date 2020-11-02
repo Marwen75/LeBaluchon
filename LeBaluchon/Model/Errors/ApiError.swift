@@ -7,30 +7,21 @@
 //
 
 import Foundation
-
-enum AppError: Error {
+// Error object concerning the APIs
+enum ApiError: Error {
     
-    case incorrectAmount
     case noData
     case badRequest
-    case incorrectSentence
-    case cantFindKey
 
     var errorDescription: String {
        return "Oups !"
     }
     var failureReason: String {
         switch self {
-        case .incorrectAmount:
-            return "Le montant saisi est incorrect."
         case .noData:
             return "Ces données ne peuvent pas être fournies pour le moment."
         case .badRequest:
             return "La requète réseau a échouée"
-        case .incorrectSentence:
-            return "Votre phrase est incorrecte."
-        case .cantFindKey:
-            return "Impossible de trouver la clé API"
         }
     }
 }

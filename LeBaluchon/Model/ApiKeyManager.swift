@@ -7,13 +7,14 @@
 //
 
 import Foundation
-
+// Creating a decodable object to stock the api Keys
 struct ApiKeys: Decodable {
-    let EXCHANGE_API_KEY: String
-    let TRANSLATOR_API_KEY: String
-    let WEATHER_API_KEY: String
+    let exchangeApiKey: String 
+    let translatorApiKey: String
+    let weatherApiKey: String
+    
 }
-
+// Creating an Object to find the api keys in the property list 
 class ApiKeyManager {
     
     var apiKey: ApiKeys? {
@@ -25,7 +26,7 @@ class ApiKeyManager {
             let apiKeyData = try decoder.decode(ApiKeys.self, from: data)
             return apiKeyData
         } catch {
-            fatalError("Could Not find api Keys in plist")
+            fatalError("Clé Api Introuvable")
         }
     }
 }

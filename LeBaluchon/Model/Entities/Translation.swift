@@ -7,13 +7,13 @@
 //
 
 import Foundation
-
+// Creating a decodable object to stock the parsed JSON data coming from the translation API.
 struct Translation: Decodable {
-    var data: TranslationData
+    let data: TranslationData
 }
 struct TranslationData: Decodable {
-    var translations: [TranslationDetail]
+    let translations: [TranslationDetail]
 }
 struct TranslationDetail: Decodable {
-    var translatedText: String
+    let translatedText: String
 }

@@ -2,11 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>EXCHANGE_API_KEY</key>
+	<key>exchangeApiKey</key>
 	<string>68a96fa10324785755a6ba2f4b99dfcb</string>
-	<key>TRANSLATOR_API_KEY</key>
+	<key>translatorApiKey</key>
 	<string>AIzaSyB3Zg282ZZ2CCganzCCoOiIdZPqA8rF05I</string>
-	<key>WEATHER_API_KEY</key>
+	<key>weatherApiKey</key>
 	<string>ef6dc83a6f7a2e9bdcbbe80b2070cfc3</string>
 </dict>
 </plist>

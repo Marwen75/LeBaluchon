@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+// Creating a decodable object to stock the parsed JSON data coming from the weather API.
 struct WeatherData: Decodable {
     let weather: [Weather]
     let main: Main

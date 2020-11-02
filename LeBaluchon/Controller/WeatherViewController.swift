@@ -9,7 +9,10 @@
 import UIKit
 
 class WeatherViewController: UIViewController {
-
+    //MARK: - Properties
+    private let weatherService = WeatherService()
+    
+    //MARK: - Outlets
     @IBOutlet weak var newYorkImageView: UIImageView!
     @IBOutlet weak var parisImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
@@ -20,13 +23,16 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var feelsLikeLabel: UILabel!
     @IBOutlet weak var compareActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var humidityLabel: UILabel!
+    @IBOutlet weak var stackView: UIStackView!
     
+    //MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        displayWeatherInfo(city: cityLabel.text!)
+        guard let cityName = cityLabel.text else {return}
+        displayWeatherInfo(city: cityName)
     }
     
-    @IBAction func compareButtonClicked(_ sender: UIButton) {
+    @IBAction func compareButtonTaped(_ sender: Any) {
         guard let cityName = cityLabel.text else {return}
         if cityName == "New York" {
             displayWeatherInfo(city: "Paris")
@@ -35,19 +41,23 @@ class WeatherViewController: UIViewController {
             displayWeatherInfo(city: "New York")
             showCityImage(city: "New York")
         }
+        stackViewAnimation()
     }
     
+    //MARK: - Methods
     private func displayWeatherInfo(city: String) {
         toggleActivityIndicator(shown: true)
-        WeatherService.shared.getWeather(city: city, completionHandler: { [weak self] result in
+        weatherService.getWeather(city: city, completionHandler: { [weak self] result in
             guard let strongSelf = self else { return }
             strongSelf.toggleActivityIndicator(shown: false)
             switch result {
             case .failure(let error):
                 strongSelf.displayAlert(title: error.errorDescription, message: error.failureReason)
             case .success(let weatherData):
-                strongSelf.displayWeatherDetails(temperature: weatherData.main.temp, feelsLike: weatherData.main.feels_like, condition: weatherData.weather.first!.description, humidity: weatherData.main.humidity)
-                strongSelf.displayWeatherIcon(mainWeatherCondition: weatherData.weather.first!.main)
+                guard let condition = weatherData.weather.first?.description else {return}
+                strongSelf.displayWeatherDetails(temperature: weatherData.main.temp, feelsLike: weatherData.main.feels_like, condition: condition, humidity: weatherData.main.humidity)
+                guard let mainWeatherCondition = weatherData.weather.first?.main else {return}
+                strongSelf.displayWeatherIcon(mainWeatherCondition: mainWeatherCondition)
             }
         })
     }
@@ -58,8 +68,8 @@ class WeatherViewController: UIViewController {
     
     private func displayWeatherDetails(temperature: Float, feelsLike: Float, condition: String, humidity: Int) {
         let temperature = roundf(temperature)
-        temperatureLabel.text = "Température: \(String(temperature))°C"
         let feelsLike = roundf(feelsLike)
+        temperatureLabel.text = "Température: \(String(temperature))°C"
         feelsLikeLabel.text = "Ressenti: \(String(feelsLike))°C"
         conditionLabel.text = "\(condition)"
         humidityLabel.text = "Humidité: \(String(humidity))%"
@@ -80,5 +90,13 @@ class WeatherViewController: UIViewController {
     private func toggleActivityIndicator(shown: Bool) {
         compareActivityIndicator.isHidden = !shown
         compareButton.isHidden = shown
+    }
+    
+    private func stackViewAnimation() {
+        stackView.transform = .identity
+        stackView.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
+        
+        UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: [], animations: {
+            self.stackView.transform = .identity }, completion: nil)
     }
 }

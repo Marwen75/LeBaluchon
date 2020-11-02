@@ -10,28 +10,29 @@ import Foundation
 
 class FakeResponseData {
     
-    let responseOK = HTTPURLResponse(url: URL(string: "https://www.hackingwithswift.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)
-    let responseKO = HTTPURLResponse(url: URL(string: "https://www.hackingwithswift.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)
+    class TestError: Error {}
+    static let error = TestError()
     
-    var weatherCorrectData: Data? {
+    static let responseOK = HTTPURLResponse(url: URL(string: "https://www.hackingwithswift.com")!, statusCode: 200, httpVersion: nil, headerFields: nil)
+    static let responseKO = HTTPURLResponse(url: URL(string: "https://www.hackingwithswift.com")!, statusCode: 500, httpVersion: nil, headerFields: nil)
+    
+    static var weatherCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "weather", withExtension: "json")!
         return try? Data(contentsOf: url)
     }
     
-    var translationCorrectData: Data? {
+    static var translationCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "translation", withExtension: "json")!
         return try? Data(contentsOf: url)
     }
     
-    var exchangeRateCorrectData: Data? {
+    static var exchangeRateCorrectData: Data? {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "exchangerate", withExtension: "json")!
         return try? Data(contentsOf: url)
     }
     
-    let weatherIncorrectData = "fsdfqefsf".data(using: .utf8)
-    let translationIncorrectData = "fsdfqefsf".data(using: .utf8)
-    let exchangeRateIncorrectData = "fsdfqefsf".data(using: .utf8)
+    static let incorrectData = "fsdfqefsf".data(using: .utf8)
 }

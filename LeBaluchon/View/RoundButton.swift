@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+// Custom class to have round buttons in our storyboard
 @IBDesignable
 class RoundButton: UIButton {
 
