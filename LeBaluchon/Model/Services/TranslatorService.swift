@@ -10,10 +10,10 @@ import Foundation
 // Creating our service that will communicate with the translation api.
 class TranslatorService {
     
-    let httpClient: HttpClient
+    private var client : HttpClient
     
-    init(httpClient: HttpClient = HttpClient()) {
-        self.httpClient = httpClient
+    init(client: HttpClient) {
+        self.client = client
     }
     // The get method that will use the http client we created
     func getTranslation(text: String, completionHandler: @escaping (Result<Translation, ApiError>) -> Void) {
@@ -21,11 +21,11 @@ class TranslatorService {
             completionHandler(.failure(.noData))
             return
         }
-        httpClient.getFromRequest(url: url, completionHandler: completionHandler)
+        client.getFromRequest(url: url, completionHandler: completionHandler)
     }
     // This method will do the "POST" request required by the api.
     private static func createTranslationRequest(text: String) -> URLRequest? {
-        guard let apiKey = ApiKeyManager().apiKey else {return nil}
+        let apiKey = ApiKeys()
         let source = "source=fr"
         let target = "target=en"
         let format = "format=text"

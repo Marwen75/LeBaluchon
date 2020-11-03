@@ -13,23 +13,23 @@ import XCTest
 class ExchangeRateServiceTestCase: XCTestCase {
     // MARK: - Properties and setup
     var error: ApiError!
-    
+  
     override func setUp() {
         super.setUp()
         
     }
     override func tearDown() {
-        //  error = nil
+       
         super.tearDown()
     }
     
-    // MARK: - TESTS
+    // MARK: - TESTS FAKE DATA
     
     // Testing the exchange rate service if there's an error
     func testGetChangeRateShouldPostFailedCallbackIfError() {
-        let expectedError = ApiError.noData
-        //var error: ApiError!
-        let exchangeRateService = ExchangeRateService(httpClient: HttpClient(session: URLSessionFake(data: nil, response: nil, error: expectedError)))
+        let client = HttpClient(session: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error))
+        let exchangeRateService = ExchangeRateService(client: client)
+    
         
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeRateService.getChangeRate { result in
@@ -39,16 +39,16 @@ class ExchangeRateServiceTestCase: XCTestCase {
                 return
             }
             XCTAssertNotNil(error)
-            XCTAssertTrue(expectedError.errorDescription == "Oups !")
-            XCTAssertTrue(expectedError.failureReason == "Ces données ne peuvent pas être fournies pour le moment.")
+            //XCTAssertTrue(expectedError.errorDescription == "Oups !")
+            //XCTAssertTrue(expectedError.failureReason == "Ces données ne peuvent pas être fournies pour le moment.")
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
     }
     // Testing the exchange rate service  if there's no data
     func testGetChangeRateShouldPostFailedCallbackIfNoData() {
-        
-        let exchangeRateService = ExchangeRateService(httpClient: HttpClient(session: URLSessionFake(data: nil, response: nil, error: nil)))
+        let client = HttpClient(session: URLSessionFake(data: nil, response: nil, error: nil))
+        let exchangeRateService = ExchangeRateService(client: client)
         
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeRateService.getChangeRate { result in
@@ -65,8 +65,8 @@ class ExchangeRateServiceTestCase: XCTestCase {
     
     // Testing exchange rate service if there's an incorrect response
     func testGetChangeRateShouldPostFailedCallbackIfIncorrectResponse() {
-        
-        let exchangeRateService = ExchangeRateService(httpClient: HttpClient(session: URLSessionFake(data: nil, response: FakeResponseData.responseKO, error: ApiError?.self as? Error)))
+        let client = HttpClient(session: URLSessionFake(data: nil, response: FakeResponseData.responseKO, error: error))
+        let exchangeRateService = ExchangeRateService(client: client)
         
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeRateService.getChangeRate { result in
@@ -76,6 +76,7 @@ class ExchangeRateServiceTestCase: XCTestCase {
                 return
             }
             XCTAssertNotNil(error)
+            XCTAssertEqual(error, ApiError.badRequest)
             XCTAssertTrue(error.errorDescription == "Oups !")
             XCTAssertTrue(error.failureReason == "La requète réseau a échouée")
             expectation.fulfill()
@@ -86,7 +87,8 @@ class ExchangeRateServiceTestCase: XCTestCase {
     // Testing the exchange rate service if there's incorrect data
     func testGetChangeRateShouldPostFailedCallbackIfIncorrectData() {
         
-        let exchangeRateService = ExchangeRateService(httpClient: HttpClient(session: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)))
+        let client = HttpClient(session: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: error))
+        let exchangeRateService = ExchangeRateService(client: client)
         
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeRateService.getChangeRate { result in
@@ -96,6 +98,9 @@ class ExchangeRateServiceTestCase: XCTestCase {
                 return
             }
             XCTAssertNotNil(error)
+            XCTAssertEqual(error, ApiError.noData)
+            XCTAssertTrue(error.errorDescription == "Oups !")
+            XCTAssertTrue(error.failureReason == "Ces données ne peuvent pas être fournies pour le moment.")
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 0.01)
@@ -104,7 +109,8 @@ class ExchangeRateServiceTestCase: XCTestCase {
     // Testing the exchange rate service if everything went fine
     func testGetRateShouldPostSuccessCallbackIfNoErrorAndCorrectData() {
         
-        let exchangeRateService = ExchangeRateService(httpClient: HttpClient(session: URLSessionFake(data: FakeResponseData.exchangeRateCorrectData, response: FakeResponseData.responseOK, error: nil)))
+        let client = HttpClient(session: URLSessionFake(data: FakeResponseData.exchangeRateCorrectData, response: FakeResponseData.responseOK, error: nil))
+        let exchangeRateService = ExchangeRateService(client: client)
         
         let expectation = XCTestExpectation(description: "Wait for queue change.")
         exchangeRateService.getChangeRate { result in
@@ -119,4 +125,23 @@ class ExchangeRateServiceTestCase: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
+    // MARK: - TESTS REAL DATA
+    
+    func testGetRateShouldPostSuccessCallbackIfNoErrorAndCorrectDataReal() {
+        
+        let client = HttpClient(session: URLSession(configuration: .default))
+        let exchangeRateService = ExchangeRateService(client: client)
+        
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        exchangeRateService.getChangeRate { result in
+            
+            guard case .success(let result) = result else {
+                XCTFail("Test request method with an error failed.")
+                return
+            }
+            XCTAssertNotNil(result.rates)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.5)
+    }
 }

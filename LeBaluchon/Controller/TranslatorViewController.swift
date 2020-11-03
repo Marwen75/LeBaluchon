@@ -10,8 +10,8 @@ import UIKit
 
 class TranslatorViewController: UIViewController {
     //MARK: - Properties
-    private let translatorService = TranslatorService()
-    private var placeholderLabel : UILabel!
+    var translatorService: TranslatorService!
+    private var placeholderLabel: UILabel!
     
     //MARK: - Outlets
     @IBOutlet weak var traductionButton: UIButton!
@@ -33,6 +33,7 @@ class TranslatorViewController: UIViewController {
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (frenchTextView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !frenchTextView.text.isEmpty
+        // Add a "continue" button to the textviex keyboard
         self.frenchTextView.addContinueButton(title: "Terminé", target: self, selector: #selector(tapContinue(sender:)))
     }
     

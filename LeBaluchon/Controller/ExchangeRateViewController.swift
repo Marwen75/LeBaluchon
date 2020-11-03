@@ -10,7 +10,8 @@ import UIKit
 
 class ExchangeRateViewController: UIViewController {
     // MARK: - Properties
-    private let exchangeRateService = ExchangeRateService()
+    var exchangeRateService: ExchangeRateService!
+    
     // MARK: - Outlets
     @IBOutlet weak var convertButton: UIButton!
     @IBOutlet weak var euroTextField: UITextField!

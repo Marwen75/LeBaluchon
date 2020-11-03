@@ -550,7 +550,7 @@
         <!--Accueil-->
         <scene sceneID="EMe-FD-tfo">
             <objects>
-                <tabBarController title="Accueil" interfaceStyle="dark" id="oPC-Pn-Jpt" sceneMemberID="viewController">
+                <tabBarController title="Accueil" interfaceStyle="dark" id="oPC-Pn-Jpt" customClass="TabBarViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="Z5E-uR-T04">

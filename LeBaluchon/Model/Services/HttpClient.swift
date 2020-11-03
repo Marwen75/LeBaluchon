@@ -9,10 +9,10 @@
 import Foundation
 // Creating a reusable http client that will be used by all our services
 class HttpClient {
-    
+
     private var session: URLSession
     
-    init(session: URLSession = URLSession(configuration: .default)) {
+    init(session: URLSession) {
         self.session = session
     }
     // A generic method to do "GET" request to our apis

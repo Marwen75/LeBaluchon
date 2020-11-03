@@ -10,7 +10,7 @@ import UIKit
 
 class WeatherViewController: UIViewController {
     //MARK: - Properties
-    private let weatherService = WeatherService()
+    var weatherService: WeatherService!
     
     //MARK: - Outlets
     @IBOutlet weak var newYorkImageView: UIImageView!
