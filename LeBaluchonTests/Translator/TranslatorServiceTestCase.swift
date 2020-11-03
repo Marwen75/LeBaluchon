@@ -130,6 +130,6 @@ class TranslatorServiceTestCase: XCTestCase {
             XCTAssertEqual(translation.data.translations[0].translatedText,"Hello")
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 5)
     }
 }

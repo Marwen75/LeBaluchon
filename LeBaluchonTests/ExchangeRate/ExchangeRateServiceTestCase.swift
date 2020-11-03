@@ -127,7 +127,7 @@ class ExchangeRateServiceTestCase: XCTestCase {
     
     // MARK: - TESTS REAL DATA
     
-    func testGetRateShouldPostSuccessCallbackIfNoErrorAndCorrectDataReal() {
+    func testGetRateShouldPostSuccessCallbackIfNoErrorAndCorrectDataWithRealData() {
         
         let client = HttpClient(session: URLSession(configuration: .default))
         let exchangeRateService = ExchangeRateService(client: client)
@@ -142,6 +142,6 @@ class ExchangeRateServiceTestCase: XCTestCase {
             XCTAssertNotNil(result.rates)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 5)
     }
 }

@@ -131,7 +131,7 @@ class WeatherServiceTestCase: XCTestCase {
             XCTAssertNotNil(weatherData)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 5)
     }
     
     func testGetWeatherShouldPostFailedCallBackIfWrongCityName() {
@@ -148,7 +148,7 @@ class WeatherServiceTestCase: XCTestCase {
             XCTAssertTrue(weatherData == ApiError.badRequest)
             expectation.fulfill()
         }
-        wait(for: [expectation], timeout: 0.5)
+        wait(for: [expectation], timeout: 5)
     }
     
 }
