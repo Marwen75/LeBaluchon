@@ -18,11 +18,11 @@ class ExchangeRateService {
     // The get method that will use the http client we created
     func getChangeRate(completionHandler: @escaping (Result<Rate, ApiError>) -> Void) {
         let apiKey = ApiKeys()
-        let usableUrl = "http://data.fixer.io/api/latest?access_key=\(apiKey.exchangeApiKey)&base=EUR&symbols=USD"
-        guard let url = URL(string: usableUrl) else {
+        guard let usableUrl = URL(string: "http://data.fixer.io/api/latest?access_key=\(apiKey.exchangeApiKey)&base=EUR&symbols=USD") else {
             completionHandler(.failure(.badRequest))
             return
         }
+        let url = URLRequest(url: usableUrl)
         client.get(url: url, completionHandler: completionHandler)
     }
 }

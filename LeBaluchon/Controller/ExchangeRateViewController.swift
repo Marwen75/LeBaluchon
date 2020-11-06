@@ -34,6 +34,8 @@ class ExchangeRateViewController: UIViewController {
             actualRateAnimation()
         } catch let error as ExchangeRateError {
             displayAlert(title: error.errorDescription, message: error.failureReason)
+        } catch let error as ApiError {
+            displayAlert(title: error.errorDescription, message: error.failureReason)
         } catch {
             displayAlert(title: "Oups !", message: "Erreur inconnue")
         }
@@ -41,6 +43,10 @@ class ExchangeRateViewController: UIViewController {
     // MARK: - Methods
     private func displayTheConvertAmount() throws {
         guard let text = euroTextField.text else { return }
+        if !InternetConnectionManager.isConnectedToNetwork() {
+            toggleActivityIndicator(shown: false)
+            throw ApiError.noInternet
+        }
         if text.isEmpty || text.first == "." {
             throw ExchangeRateError.incorrectAmount
         }
@@ -84,11 +90,15 @@ class ExchangeRateViewController: UIViewController {
         }, completion: nil)
     }
 }
-    //MARK: - Extension
+//MARK: - Extension
 extension ExchangeRateViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return string == string.filter("0123456789.".contains)
     }
 }

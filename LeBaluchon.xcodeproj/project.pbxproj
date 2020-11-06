@@ -11,6 +11,7 @@
 		C21335732548A116008ECE11 /* ExchangeRateError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21335722548A116008ECE11 /* ExchangeRateError.swift */; };
 		C213357825497FE5008ECE11 /* UITextView+additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C213357725497FE5008ECE11 /* UITextView+additions.swift */; };
 		C22BA059255191B4005D9906 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22BA058255191B4005D9906 /* TabBarViewController.swift */; };
+		C22BA05F25559A8C005D9906 /* InternetConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22BA05E25559A8C005D9906 /* InternetConnectionManager.swift */; };
 		C2362E68254C0E5800C5B58F /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2362E67254C0E5800C5B58F /* LeBaluchonUITests.swift */; };
 		C28BFEF725401CB50013DA7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFEF625401CB50013DA7D /* AppDelegate.swift */; };
 		C28BFEF925401CB50013DA7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28BFEF825401CB50013DA7D /* SceneDelegate.swift */; };
@@ -64,6 +65,7 @@
 		C21335722548A116008ECE11 /* ExchangeRateError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateError.swift; sourceTree = "<group>"; };
 		C213357725497FE5008ECE11 /* UITextView+additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+additions.swift"; sourceTree = "<group>"; };
 		C22BA058255191B4005D9906 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		C22BA05E25559A8C005D9906 /* InternetConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionManager.swift; sourceTree = "<group>"; };
 		C2362E65254C0E5800C5B58F /* LeBaluchonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeBaluchonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2362E67254C0E5800C5B58F /* LeBaluchonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeBaluchonUITests.swift; sourceTree = "<group>"; };
 		C2362E69254C0E5800C5B58F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 			children = (
 				C28BFEF625401CB50013DA7D /* AppDelegate.swift */,
 				C28BFEF825401CB50013DA7D /* SceneDelegate.swift */,
+				C22BA05E25559A8C005D9906 /* InternetConnectionManager.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C22BA05F25559A8C005D9906 /* InternetConnectionManager.swift in Sources */,
 				C28BFF2A25401D400013DA7D /* ExchangeRateViewController.swift in Sources */,
 				C28BFF2C25401D590013DA7D /* WeatherViewController.swift in Sources */,
 				C28BFF4A254469F00013DA7D /* RoundButton.swift in Sources */,

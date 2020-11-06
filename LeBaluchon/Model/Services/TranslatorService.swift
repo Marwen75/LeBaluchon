@@ -21,7 +21,7 @@ class TranslatorService {
             completionHandler(.failure(.noData))
             return
         }
-        client.getFromRequest(url: url, completionHandler: completionHandler)
+        client.get(url: url, completionHandler: completionHandler)
     }
     // This method will do the "POST" request required by the api.
     private static func createTranslationRequest(text: String) -> URLRequest? {

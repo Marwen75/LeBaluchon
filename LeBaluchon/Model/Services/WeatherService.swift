@@ -20,11 +20,11 @@ class WeatherService {
         let apiKey = ApiKeys()
         // Encoding the city names to avoid error during the request
         guard let encodedCityName = city.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
-        let usableUrl = "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCityName)&units=metric&lang=fr&APPID=\(apiKey.weatherApiKey)"
-        guard let url = URL(string: usableUrl) else {
+        guard let usableUrl = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(encodedCityName)&units=metric&lang=fr&APPID=\(apiKey.weatherApiKey)") else {
             completionHandler(.failure(.noData))
             return
         }
+        let url = URLRequest(url: usableUrl)
         client.get(url: url, completionHandler: completionHandler)
     }
 }

@@ -43,14 +43,16 @@ class TranslatorViewController: UIViewController {
     }
     
     @IBAction func traductionButtonTapped(_ sender: UIButton) {
-        do {
-            try makeTheTranslation()
-            stackViewAnimation()
-        } catch let error as TranslatorError {
-            displayAlert(title: error.errorDescription, message: error.failureReason)
-        } catch {
-            displayAlert(title: "Oups!", message: "erreur inconnue")
-        }
+       do {
+           try makeTheTranslation()
+           stackViewAnimation()
+       } catch let error as TranslatorError {
+           displayAlert(title: error.errorDescription, message: error.failureReason)
+       } catch let error as ApiError {
+           displayAlert(title: error.errorDescription, message: error.failureReason)
+       } catch {
+           displayAlert(title: "Oups!", message: "erreur inconnue")
+       }
     }
     
     //MARK: - Methods
@@ -60,6 +62,10 @@ class TranslatorViewController: UIViewController {
     
     private func makeTheTranslation() throws {
         guard let text = frenchTextView.text else { return }
+        if !InternetConnectionManager.isConnectedToNetwork() {
+            toggleActivityIndicator(shown: false)
+            throw ApiError.noInternet
+        }
         if text.isEmpty {
             throw TranslatorError.incorrectSentence
         }

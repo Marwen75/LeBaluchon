@@ -29,24 +29,40 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let cityName = cityLabel.text else {return}
-        displayWeatherInfo(city: cityName)
+        do {
+            try displayWeatherInfo(city: cityName)
+        } catch let error as ApiError {
+            displayAlert(title: error.errorDescription, message: error.failureReason)
+        } catch {
+            displayAlert(title: "Oups !", message: "Erreur inconnue")
+        }
     }
     
     @IBAction func compareButtonTaped(_ sender: Any) {
         guard let cityName = cityLabel.text else {return}
-        if cityName == "New York" {
-            displayWeatherInfo(city: "Paris")
-            showCityImage(city: "Paris")
-        } else {
-            displayWeatherInfo(city: "New York")
-            showCityImage(city: "New York")
+        do {
+            if cityName == "New York" {
+                try displayWeatherInfo(city: "Paris")
+                showCityImage(city: "Paris")
+            } else {
+                try displayWeatherInfo(city: "New York")
+                showCityImage(city: "New York")
+            }
+        } catch let error as ApiError {
+            displayAlert(title: error.errorDescription, message: error.failureReason)
+        } catch {
+            displayAlert(title: "Oups !", message: "Erreur inconnue")
         }
         stackViewAnimation()
     }
     
     //MARK: - Methods
-    private func displayWeatherInfo(city: String) {
+    private func displayWeatherInfo(city: String) throws {
         toggleActivityIndicator(shown: true)
+        if !InternetConnectionManager.isConnectedToNetwork() {
+            toggleActivityIndicator(shown: false)
+            throw ApiError.noInternet
+        }
         weatherService.getWeather(city: city, completionHandler: { [weak self] result in
             guard let strongSelf = self else { return }
             strongSelf.toggleActivityIndicator(shown: false)
@@ -56,14 +72,15 @@ class WeatherViewController: UIViewController {
             case .success(let weatherData):
                 guard let condition = weatherData.weather.first?.description else {return}
                 strongSelf.displayWeatherDetails(temperature: weatherData.main.temp, feelsLike: weatherData.main.feels_like, condition: condition, humidity: weatherData.main.humidity)
-                guard let mainWeatherCondition = weatherData.weather.first?.main else {return}
-                strongSelf.displayWeatherIcon(mainWeatherCondition: mainWeatherCondition)
+                guard let icon = weatherData.weather.first?.icon else {return}
+                let iconUrl = "http://openweathermap.org/img/wn/\(icon)@2x.png"
+                guard let url = URL(string: iconUrl) else {
+                    strongSelf.displayAlert(title: "Oups", message: "Image météo indisponible.")
+                    return
+                }
+                strongSelf.conditionImageView.load(url: url)
             }
         })
-    }
-    
-    private func displayWeatherIcon(mainWeatherCondition: String) {
-        conditionImageView.image = UIImage(named: "\(mainWeatherCondition)")
     }
     
     private func displayWeatherDetails(temperature: Float, feelsLike: Float, condition: String, humidity: Int) {
@@ -98,5 +115,19 @@ class WeatherViewController: UIViewController {
         
         UIView.animate(withDuration: 0.8, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.9, options: [], animations: {
             self.stackView.transform = .identity }, completion: nil)
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }
