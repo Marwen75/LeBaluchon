@@ -9,8 +9,8 @@
 import Foundation
 // Creating an object to stock the api Keys
 struct ApiKeys {
-    let exchangeApiKey: String = "68a96fa10324785755a6ba2f4b99dfcb"
-    let translatorApiKey: String = "AIzaSyB3Zg282ZZ2CCganzCCoOiIdZPqA8rF05I"
-    let weatherApiKey: String = "ef6dc83a6f7a2e9bdcbbe80b2070cfc3"
+    let exchangeApiKey: String = ""
+    let translatorApiKey: String = ""
+    let weatherApiKey: String = ""
 }
 
